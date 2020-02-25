@@ -1,0 +1,23 @@
+{
+  "name": "wit",
+  "version": "1.0.0",
+  "description": "water indicator for tanks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thobhanifreddy/wit.git"
+  },
+  "author": "Freddy Thobhani, Neel Patel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thobhanifreddy/wit/issues"
+  },
+  "homepage": "https://github.com/thobhanifreddy/wit#readme",
+  "dependencies": {
+    "mosca": "^2.8.3",
+    "mqtt": "^3.0.0"
+  }
+}
