@@ -9,9 +9,10 @@ var server = new mosca.Server(settings);
 
 server.on('ready', function(){
 console.log("ready");
+console.log(process.env.port)
 });
 
-var client  = mqtt.connect('mqtt://192.168.43.103')
+var client  = mqtt.connect('mqtt://192.168.43.127')
 client.on('connect', function () {
     client.subscribe('/pind0')
 })

@@ -19,6 +19,7 @@
   "homepage": "https://github.com/thobhanifreddy/wit#readme",
   "dependencies": {
     "mosca": "^2.8.3",
-    "mqtt": "^3.0.0"
+    "mqtt": "^3.0.0",
+    "mqtt-server": "^0.1.0"
   }
 }
