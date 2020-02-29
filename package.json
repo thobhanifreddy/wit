@@ -1,23 +1,18 @@
 {
-  "name": "wit",
-  "version": "1.0.0",
-  "description": "water indicator for tanks",
-  "main": "index.js",
+  "name": "mqtt-sse",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thobhanifreddy/wit.git"
-  },
-  "author": "Freddy Thobhani, Neel Patel",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/thobhanifreddy/wit/issues"
-  },
-  "homepage": "https://github.com/thobhanifreddy/wit#readme",
   "dependencies": {
-    "mosca": "^2.8.3",
-    "mqtt": "^3.0.0"
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "^4.17.1",
+    "morgan": "~1.9.1",
+    "mqtt": "^2.15.0",
+    "pug": "^2.0.4",
+    "serve-favicon": "~2.4.5"
   }
 }
