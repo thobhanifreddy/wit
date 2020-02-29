@@ -6,7 +6,7 @@
 const char *ssid = "Neel";
 const char *password = "icanfly7";
 const char *mqtt_server = "192.168.43.128";
-const char *device_id = "tankSide";
+const char *device_id = "switch-Side";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -17,15 +17,15 @@ void callback(String message, byte *payload, unsigned int length)
   Serial.print(message);
   Serial.println("] ");
 
-//  if (message == "PUMPON") {
-//    Serial.print("ON");
-//    digitalWrite(D0, HIGH);
-//  }
-//  
-//  else if (message == "PUMPOFF") {
-//    Serial.print("OFF");
-//    digitalWrite(D0, LOW);
-//  }
+  if (message == "PUMPON") {
+    Serial.print("ON");
+    digitalWrite(D4, HIGH);
+  }
+  
+  else if (message == "PUMPOFF") {
+    Serial.print("OFF");
+    digitalWrite(D4, LOW);
+  }
 }
 
 void reconnect()
@@ -36,7 +36,7 @@ void reconnect()
     if (client.connect(device_id, "cloud_username", "cloud_password"))
     {
       Serial.println("connected");
-      digitalWrite(D0, LOW);
+      digitalWrite(D0, HIGH);
       client.subscribe("PUMPOFF");
       client.subscribe("PUMPON");
     }
@@ -52,7 +52,7 @@ void reconnect()
 
 void setup() {
   Serial.begin(9600);
-  pinMode(D0, OUTPUT);
+  pinMode(D4, OUTPUT);
   pinMode(D6, INPUT);
 
   Serial.begin(115200);
@@ -66,11 +66,13 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
+
+  digitalWrite(D0, LOW);
   Serial.println("");
 
   Serial.println("WiFi connected");
   Serial.println("IP address: " + WiFi.localIP().toString());
-
+  
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
 }
@@ -86,12 +88,6 @@ void loop() {
     reconnect();
   }
   while (client.loop()) {
-    client.publish("PUMPON","on");
-    Serial.println("ON");
-    delay(1000 * 10);
-    client.publish("PUMPOFF","off");
-    Serial.println("OFF");
-    delay(1000 * 10);
     //    int val;
     //    val = digitalRead(D6);
     //    if (val == 0) {
