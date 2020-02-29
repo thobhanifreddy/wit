@@ -9,7 +9,7 @@ var server = new mosca.Server(settings);
 
 server.on('ready', function(){
 console.log("ready");
-console.log(process.env.port)
+console.log(process.env.PORT)
 });
 
 var client  = mqtt.connect('mqtt://192.168.43.127')
